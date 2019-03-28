@@ -1,0 +1,144 @@
+print("Welcome to millionaire-auction.com!")
+
+items = {
+  1 : {"Item_Id: " : 1, "Item: " : "Baseball card", "bid_num: " : 0, "reserve_price: " : 1000750.00, "highest_bid: ": 0,},
+  2 : {"Item_Id: " : 2, "Item: " : "Lamborghini Aventador", "bid_num: " : 0, "reserve_price: " : 3900000.00, "highest_bid: ": 0,},
+  3 : {"Item_Id: " : 3, "Item: " : "Rolex Yatch Master","bid_num: " : 0, "reserve_price: " : 40000.00, "highest_bid: ": 0,},
+  4 : {"Item_Id: " : 4, "Item: " : "T-rex tooth", "bid_num: " : 0, "reserve_price: " : 250000.00, "highest_bid: ": 0,},
+  5 : {"Item_Id: " : 5, "Item: " : "Van Gogh painting", "bid_num: " : 0, "reserve_price: " : 6400000.00, "highest_bid: ": 0,}, 
+  6 : {"Item_Id: " : 6, "Item: " : "Domaine Leroy Chambertin Grand Cru", "bid_num: " : 0, "reserve_price: " : 16000.00, "highest_bid: ": 0,}, 
+  7 : {"Item_Id: " : 7, "Item: " : "Cartier Santos", "bid_num: " : 0, "reserve_price: " : 11700.00, "highest_bid: ": 0,},  
+  8 : {"Item_Id: " : 8, "Item: " : "No. 1 Imperial Majesty Perfume", "bid_num: " : 0, "reserve_price: " : 12000.00, "highest_bid: ": 0,},
+  9 : {"Item_Id: " : 9, "Item: " : "Gucci Diamond Belt", "bid_num: " : 0, "reserve_price: " : 250000.00, "highest_bid: ": 0,},  
+  10 : {"Item_Id: " : 10, "Item: " : "Marvel Comics #1 Mint Condition", "bid_num: " : 0, "reserve_price: " : 375000.00, "highest_bid: ": 0,},  
+}
+
+def screen():
+  print ("Item Id" + "      " + "Item" + "                             " + "# of bids" + "     " + "reserve_price price")
+
+  print("    " + str(items[1]["Item_Id: "]) + "        " + items[1]["Item: "] + "                        " + str(items[1]["bid_num: "]) + "         " + "$1,000,750.00")
+  print("    " + str(items[2]["Item_Id: "]) + "        " + items[2]["Item: "] + "                " + str(items[2]["bid_num: "]) + "         " + "$3,900,000.00")
+  print("    " + str(items[3]["Item_Id: "]) + "        " + items[3]["Item: "] + "                   " + str(items[3]["bid_num: "]) + "            " + "$40,000.00")
+  print("    " + str(items[4]["Item_Id: "]) + "        " + items[4]["Item: "] + "                          " + str(items[4]["bid_num: "]) + "           " + "$250,000.00")
+  print("    " + str(items[5]["Item_Id: "]) + "        " + items[5]["Item: "] + "                    " + str(items[5]["bid_num: "]) + "         " + "$6,400,000.00")
+  print("    " + str(items[6]["Item_Id: "]) + "        " + items[6]["Item: "] + "   " + str(items[6]["bid_num: "]) + "            " + "$16,000.00")
+  print("    " + str(items[7]["Item_Id: "]) + "        " + items[7]["Item: "] + "                       " + str(items[7]["bid_num: "]) + "            " + "$11,700.00")
+  print("    " + str(items[8]["Item_Id: "]) + "        " + items[8]["Item: "] + "       " + str(items[8]["bid_num: "]) + "            " + "$12,000.00")
+  print("    " + str(items[9]["Item_Id: "]) + "        " + items[9]["Item: "] + "                   " + str(items[9]["bid_num: "]) + "           " + "$250,000.00")
+  print("    " + str(items[10]["Item_Id: "]) + "       " + items[10]["Item: "] + "      " + str(items[10]["bid_num: "]) + "           " + "$375,000.00")
+
+screen()
+quit = False
+buyer_num = input("Enter user id: ")
+
+while not quit:
+  screen()
+  bid = input("Enter the item number you want to bid for. Type 'q' to stop: ")
+  if bid != 'q':
+    print(items[int(bid)])
+    items[int(bid)]["bid_num: "] += 1
+    cash = input("Enter bid: ")
+    if float(cash) >= items[int(bid)]["highest_bid: "]:
+      items[int(bid)]["highest_bid: "] = float(cash)
+      if items[int(bid)]["highest_bid: "] >= items[int(bid)]["reserve_price: "]:
+        print("reserve_price has passed.")
+        #print(items[int(bid)]["highest_bid: "])
+      else:
+        print("reserve_price has not passed.")
+  else:
+    quit = True
+    print("Thank you for shopping with millionaire-auction.com.")
+
+print("Purchase info: There is a 10% comission on the fee.")
+
+def total_fee():
+  profit = 0
+  sold = 0
+  if items[1]["highest_bid: "] > items[1]["reserve_price: "]:
+    profit += (items[1]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[2]["highest_bid: "] > items[2]["reserve_price: "]:
+    profit += (items[2]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[3]["highest_bid: "] > items[3]["reserve_price: "]:
+    profit += (items[3]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[4]["highest_bid: "] > items[4]["reserve_price: "]: 
+    profit += (items[4]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[5]["highest_bid: "] > items[5]["reserve_price: "]:
+    profit += (items[5]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[6]["highest_bid: "] > items[6]["reserve_price: "]:
+    profit += (items[6]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[7]["highest_bid: "] > items[7]["reserve_price: "]:
+    profit += (items[7]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[8]["highest_bid: "] > items[8]["reserve_price: "]:
+    profit += (items[8]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[9]["highest_bid: "] > items[9]["reserve_price: "]:
+    profit += (items[9]["highest_bid: "] * 1.1)
+    sold += 1
+  if items[10]["highest_bid: "] > items[10]["reserve_price: "]:
+    profit += (items[10]["highest_bid: "] * 1.1)
+    sold += 1
+  print("Total fee: " + str(round(profit,2)))
+  print("No. of items sold: " + str(sold))
+
+def reserve_price_unmet():
+  unmet = []
+  if items[1]["highest_bid: "] < items[1]["reserve_price: "] and items[1]["bid_num: "] > 0:
+    unmet.append(str(items[1]["Item_Id: "]))
+  if items[2]["highest_bid: "] < items[2]["reserve_price: "]and items[2]["bid_num: "] > 0:
+    unmet.append(str(items[2]["Item_Id: "]))
+  if items[3]["highest_bid: "] < items[3]["reserve_price: "]and items[3]["bid_num: "] > 0:
+    unmet.append(str(items[3]["Item_Id: "]))
+  if items[4]["highest_bid: "] < items[4]["reserve_price: "]and items[4]["bid_num: "] > 0: 
+    unmet.append(str(items[4]["Item_Id: "]))
+  if items[5]["highest_bid: "] < items[5]["reserve_price: "]and items[5]["bid_num: "] > 0:
+    unmet.append(str(items[5]["Item_Id: "]))
+  if items[6]["highest_bid: "] < items[6]["reserve_price: "]and items[6]["bid_num: "] > 0:
+    unmet.append(str(items[6]["Item_Id: "]))
+  if items[7]["highest_bid: "] < items[7]["reserve_price: "]and items[7]["bid_num: "] > 0:
+    unmet.append(str(items[7]["Item_Id: "]))
+  if items[8]["highest_bid: "] < items[8]["reserve_price: "]and items[8]["bid_num: "] > 0:
+    unmet.append(str(items[8]["Item_Id: "]))
+  if items[9]["highest_bid: "] < items[9]["reserve_price: "]and items[9]["bid_num: "] > 0:
+    unmet.append(str(items[9]["Item_Id: "]))
+  if items[10]["highest_bid: "] < items[10]["reserve_price: "]and items[10]["bid_num: "] > 0:
+    unmet.append(str(items[10]["Item_Id: "]))
+
+  print("Items that did not meet reserve_price: " + ', '.join(unmet) + ", " + str(len(unmet)) + " item(s)")
+
+  for i in unmet:
+    print("The final bid for item " + str(items[int(i)]["Item_Id: "]) + " was $" + str(items[int(i)]["highest_bid: "]))
+
+def unbid():
+  no_bids = []
+  if items[1]["bid_num: "] == 0:
+    no_bids.append(str(items[1]["Item_Id: "]))
+  if items[2]["bid_num: "] == 0:
+    no_bids.append(str(items[2]["Item_Id: "]))
+  if items[3]["bid_num: "] == 0:
+    no_bids.append(str(items[3]["Item_Id: "]))
+  if items[4]["bid_num: "] == 0:
+    no_bids.append(str(items[4]["Item_Id: "]))
+  if items[5]["bid_num: "] == 0:
+    no_bids.append(str(items[5]["Item_Id: "]))
+  if items[6]["bid_num: "] == 0:
+    no_bids.append(str(items[6]["Item_Id: "]))
+  if items[7]["bid_num: "] == 0:
+    no_bids.append(str(items[7]["Item_Id: "]))
+  if items[8]["bid_num: "] == 0:
+    no_bids.append(str(items[8]["Item_Id: "]))
+  if items[9]["bid_num: "] == 0:
+    no_bids.append(str(items[9]["Item_Id: "]))
+  if items[10]["bid_num: "] == 0:
+    no_bids.append(str(items[10]["Item_Id: "]))
+  print("Items that were not bid on: " + str(len(no_bids)) + " items")
+
+total_fee()
+reserve_price_unmet()
+unbid()
